@@ -6,6 +6,7 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
+os.system('pip install -r requirements.txt')
 # Load environment variables
 load_dotenv()
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
