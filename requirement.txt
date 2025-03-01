@@ -1,6 +1,6 @@
-langchain
-langchain-core
+langchain==0.3.19
+langchain-core==0.3.40
 python-dotenv
 streamlit
-langchain-community
+langchain-community==0.3.18
 ollama
