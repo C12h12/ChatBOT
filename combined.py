@@ -6,7 +6,7 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-os.system('pip install --no-cache-dir langchain-core langchain langchain-community streamlit')
+os.system('pip install -r requirement.txt')
 
 # Load environment variables
 load_dotenv()
