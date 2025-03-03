@@ -4,3 +4,4 @@ langchain-community==0.3.18
 python-dotenv
 streamlit
 ollama
+nest-asyncio
