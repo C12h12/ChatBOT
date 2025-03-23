@@ -34,9 +34,10 @@ mistral_chain = prompt | mistral_llm | output_parser
 # Evaluation functions
 def evaluate_response(response, evaluator_type, model, question):
     criteria_dict = {
-        "coherence": "Does the response make logical sense?",
-        "relevance": "Is the response relevant to the question?",
-        "fluency": "Is the response grammatically correct and fluent?"
+        "coherence": "1(poor quality) to 5(high quality)",
+            
+        "relevance": "1(poor quality) to 5(high quality)",
+        "fluency": "1(poor quality) to 5(high quality)"
     }
     evaluator = load_evaluator(evaluator_type, llm=model, criteria=criteria_dict)
     try:
@@ -78,8 +79,10 @@ if input_text:
         mistral_response = future_mistral.result()
 
     # Evaluate responses using "criteria" evaluator
-    llama2_quality = evaluate_response(llama2_response, "criteria", llama2_llm, input_text)
-    mistral_quality = evaluate_response(mistral_response, "criteria", mistral_llm, input_text)
+    llama2_quality = evaluate_response(llama2_response, "criteria", mistral_llm, input_text)
+    mistral_quality = evaluate_response(mistral_response, "criteria", llama2_llm, input_text)
+    st.write(llama2_quality)
+    st.write(mistral_quality)
 
     # Display responses side by side
     col1, col2 = st.columns(2)
